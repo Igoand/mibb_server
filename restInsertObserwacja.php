@@ -16,7 +16,6 @@ $fkKartaObserwacji = $_POST["fkKartaObserwacji"];
 # Przygotowanie zapytania SQL
 $mysql_zapytanie = "insert into obserwacja (nazwaGniazda, lokalizacjaGniazda, usytuowanieGniazda, platformaGniazda, efektLegu, stanGniazda, idZdjecia, obecnoscObraczki, uwagi, fkKartaObserwacji) values ('$nazwaGniazda', '$lokalizacjaGniazda', '$usytuowanieGniazda', '$platformaGniazda', '$efektLegu', '$stanGniazda', '$idZdjecia' ,'$obecnoscObraczki' ,'$uwagi', '$fkKartaObserwacji');";
 
-
 # Obsługa wyników
 if (mysqli_query($conn, $mysql_zapytanie)){
 	echo "Pomyslnie zapisano dane na zdalnej bazie danych.";
