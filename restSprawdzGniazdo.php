@@ -3,7 +3,6 @@ require "restConnect.php";
 
 # Deklaracja zmiennych otrzymanych poprzez komunikację POST
 $miejscowosc = $_POST["miejscowosc"];
-#$miejscowosc = "Olsztyn";
 
 # Przygotowanie zapytania SQL
 $sql = "select nazwaGniazda from obserwacja where nazwaGniazda like '%$miejscowosc%' order by idGniazda desc limit 1";

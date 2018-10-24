@@ -37,18 +37,18 @@ if ($numerKarty!=null){
 	error_log($czasLoga."	Nowa karta: ". $wyznaczonyNumerKarty." - ".$gmina."\n", 3, 'temperroro.log');
 }
 
-
+$nowyNumerKarty=(string)$gmina.(string)$wyznaczonyNumerKarty;
+error_log($czasLoga."	nowyNumerKarty: ". $nowyNumerKarty."\n", 3, 'temperroro.log');
 # Przygotowanie zapytania SQL do wprowadznie danych karty obserwacji na baze
-$sqlInsert = "insert into kartaobserwacji (daneObserwatora, emailObserwatora, telefonObserwatora,	wojewodztwo, powiat,	gmina,	dataRejestracjiKarty, numerKarty) values ('$obserwator', '$email', '$telefon', '$wojewodztwo', '$powiat', '$gmina', '$data_obserwacji', '$wyznaczonyNumerKarty')";
+$sqlInsert = "insert into kartaobserwacji (daneObserwatora, emailObserwatora, telefonObserwatora,	wojewodztwo, powiat,	gmina,	dataRejestracjiKarty, numerKarty) values ('$obserwator', '$email', '$telefon', '$wojewodztwo', '$powiat', '$gmina', '$data_obserwacji', '$nowyNumerKarty')";
 
 # Przechwycenie wyniku wykonania zapytania do zmiennej
-$wynik = $conn->query($sqlInsert);
+#$wynik = $conn->query($sqlInsert);
 
 # Obsługa wyników
 if (mysqli_query($conn, $sqlInsert)){
-	echo $wyznaczonyNumerKarty;
-}
-else{
+	echo $nowyNumerKarty;
+}else{
 	echo "Bład wysyłania danych na zdalną bazęanych: \n" . $conn->error;
 }
 $conn->close();
